@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
@@ -18,6 +19,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
+import io.realm.RealmResults;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
     private RealmHelper help;
     MaterialSearchView searchView;
     @BindView(R.id.toolbar) Toolbar toolbar;
+    private ArrayList<Object> modelNames;
+    Model s=new Model();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
 
         String [] a = getResources().getStringArray(R.array.query_suggestions);
         String [] c = getResources().getStringArray(R.array.no);
-        Model s=new Model();
 
         rv= (RecyclerView) findViewById(R.id.rv);
         rv.setLayoutManager(new LinearLayoutManager(this));
@@ -66,12 +69,13 @@ public class MainActivity extends AppCompatActivity {
                 help.save(s);
                 //BIND
                 model = help.retrieve();
+
                 adapter = new MyAdapter(this, model);
                 rv.setAdapter(adapter);
             }
 
         }else{
-
+            Toast.makeText(this, ""+modelNames, Toast.LENGTH_SHORT).show();
             RealmHelper helpo=new RealmHelper(realm);
             model = helpo.retrieve();
             adapter = new MyAdapter(this, model);

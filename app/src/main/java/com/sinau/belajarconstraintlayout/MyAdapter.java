@@ -40,7 +40,7 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             @Override
             public void onClick(View view) {
 
-                Toast.makeText(view.getContext(), "You clicked " + model.get(position).toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(view.getContext(), "You clicked " + model.get(position).toString() + position, Toast.LENGTH_SHORT).show();
 
 
             }
