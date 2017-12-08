@@ -1,6 +1,7 @@
 package com.sinau.belajarconstraintlayout;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,7 +42,9 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             public void onClick(View view) {
 
                 Toast.makeText(view.getContext(), "You clicked " + model.get(position).toString() + position, Toast.LENGTH_SHORT).show();
-
+                Intent i = new Intent(c, preview.class);
+                i.putExtra("index",position);
+                c.startActivity(i);
 
             }
         });

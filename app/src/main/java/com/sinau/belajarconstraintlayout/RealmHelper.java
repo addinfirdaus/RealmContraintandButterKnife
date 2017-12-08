@@ -38,18 +38,13 @@ class RealmHelper {
         return modelNames;
     }
 
-    //READ
-    public ArrayList<String> terima()
-    {
-        ArrayList<String> modelNames=new ArrayList<>();
-        RealmResults<Model> spacecrafts=realm.where(Model.class).findAll();
-        for(Model s:spacecrafts)
-        {
-            modelNames.add(s.getNo());
-
-        }
-        return modelNames;
+    public void simpan(final Modelabc abc) {
+        realm.executeTransaction(new Realm.Transaction() {
+            @Override
+            public void execute(Realm realm) {
+                Modelabc sabc = realm.copyToRealm(abc);
+            }
+        });
     }
-
 
 }

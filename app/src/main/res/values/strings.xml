@@ -19,4 +19,22 @@
         <item>6</item>
         <item>7</item>
     </string-array>
+
+    <string-array name="a">
+        <item>Ayam</item>
+        <item>Anoa</item>
+        <item>Angsa</item>
+    </string-array>
+
+    <string-array name="b">
+        <item>Bangau</item>
+        <item>Bebek</item>
+        <item>Burerung</item>
+    </string-array>
+
+    <string-array name="c">
+        <item>Cicak</item>
+        <item>Cindil</item>
+        <item>Coak</item>
+    </string-array>
 </resources>
